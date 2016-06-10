@@ -1,0 +1,160 @@
+{% extends "canvas/baseCanvas.html" %}
+
+{% block title %}
+    Twenty One Song
+{% endblock %}
+
+{% block fullHeader %}
+    <header id="header" class="sticky-style-2">
+        <div id="header-wrap">
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="style-2 center">
+
+                <div class="container clearfix">
+
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                    <ul>
+                        {% for menu in headerMenu %}
+                            <li {% if loop.first %}class="current" {% endif %}>
+                                {% if menu.href %}
+                                    <a href="{{ menu.href }}">
+                                        <div>{{ menu.name }}</div>
+                                    </a>
+                                {% else %}
+                                    <a>
+                                        <div>{{ menu.name }}</div>
+                                    </a>
+                                {% endif %}
+
+                                {% if menu.submenus %}
+                                    <ul>
+                                        {% for submenu in menu.submenus %}
+                                            <li>
+                                                {% if submenu.scrollTo %}
+                                                    <a onclick="$('#{{ submenu.scrollTo }}').goTo();">
+                                                        <div>{{ submenu.name }}</div>
+                                                    </a>
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </header><!-- #header end -->
+{% endblock %}
+
+{% block slider %}
+    {% if not hideSlider %}
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-12 hidden-xs">
+                <section id="slider" style="min-height: 400px; max-height:750px;"
+                         class="slider-parallax swiper_wrapper full-screen clearfix">
+                    <div class="swiper-container swiper-parent">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide dark"
+                                 style="background-size: cover; background-image: url('http://static.vascopatricio.com/twentyonesongs/banner.jpg')">
+                                <div class="container clearfix">
+                                    <div class="slider-caption slider-caption-center">
+                                        <h2 data-caption-animate="fadeInUp">Twenty One Songs</h2>
+
+                                        <p data-caption-animate="fadeInUp"
+                                           data-caption-delay="200">Twenty One Pilots playlist recommender.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
+                        <div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+    <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        (function ($) {
+            $.fn.goTo = function () {
+                $('html, body').animate({
+                    scrollTop: $(this).offset().top + 'px'
+                }, 'slow');
+                return this; // for chaining...
+            };
+
+            getServerApiMode = function () {
+                return ($('#backendApiSel').val() || 'djangoManual');
+            };
+
+            getApiServerLocation = function () {
+                var API_SERVERS = {
+                    "node": "http://localhost:8000/api/",
+                    "djangoManual": "http://localhost:8000/api/",
+                    "djangoRest": "http://localhost:8000/api/",
+                    "firebase": "http://localhost:8000/api/",
+                };
+                return API_SERVERS[getServerApiMode() || 'djangoManual'];
+            };
+
+            getServerAddressByServerNature = function () {
+                return 'http://localhost:8000/';
+            };
+
+            changeServerAddress = function () {
+
+                var url = getServerAddressByServerNature($('#serverRendererSel').val() || 'django');
+
+                url += 'interface/';
+                url += ($('#jsFrontendSel').val() || 'nojs') + '/';
+                url += getServerApiMode() + '/';
+                url += 'home/';
+
+                window.location.href = url;
+            };
+
+            embedYoutubeVideo = function (ytId) {
+                var ytArea = $('#ytArea');
+
+                var html = '<p>&nbsp;</p>\
+                <iframe width="420" height="315" \
+                    src="http://www.youtube.com/embed/'+ytId+'?autoplay=1"> \
+                </iframe>';
+
+                ytArea.html(html);
+                ytArea.show();
+                ytArea.goTo();
+            };
+        })(jQuery);
+    </script>
+
+    {% if jsMode == 'angular' %}
+        {% include "jsApps/angular.html" %}
+    {% else %}
+        {% if jsMode == 'react' %}
+            {% include "jsApps/react.html" %}
+        {% else %}
+            {% if jsMode == 'nojs' %}
+                {% include "jsApps/nojs.html" %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+            <div id="ytArea" style="display: none;">
+            </div>
+        </div>
+    </div>
+{% endblock %}

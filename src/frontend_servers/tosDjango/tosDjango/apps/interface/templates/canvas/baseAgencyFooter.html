@@ -1,0 +1,85 @@
+<footer id="footer">
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+        <div class="container clearfix">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Server Renderer</p>
+                            <p>
+                                <select id="serverRendererSel" class="form-control" onchange="changeServerAddress();">
+                                    {% for obj in SERVER_RENDERERS %}
+                                        <option {% if obj.selected %}selected="selected"{% endif %}
+                                                value="{{ obj.key }}">{{ obj.value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>JavaScript Frontend</p>
+                            <p>
+                                <select id="jsFrontendSel" class="form-control" onchange="changeServerAddress();">
+                                    {% for obj in LIBRARY_NAMES %}
+                                        <option {% if obj.selected %}selected="selected"{% endif %}
+                                                value="{{ obj.key }}">{{ obj.value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Backend API</p>
+                            <p>
+                                <select id="backendApiSel" class="form-control" onchange="changeServerAddress();">
+                                    {% for obj in API_MODES %}
+                                        <option {% if obj.selected %}selected="selected"{% endif %}
+                                                value="{{ obj.key }}">{{ obj.value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col_half">
+                <p>
+                    2016 by Vasco Patrício
+                </p>
+
+                <p>
+                    Made with admiratiøn for Twenty Øne Piløts
+                </p>
+            </div>
+
+            <div class="col_half col_last tright">
+                <div class="fright clearfix">
+                    <a href="mailto:vasco.patricio.pessoal@gmail.com"
+                       class="social-icon si-small si-light si-rounded">
+                        <i class="icon-line-mail"></i>
+                        <i class="icon-line-mail"></i>
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- #copyrights end -->
+
+</footer><!-- #footer end -->
+
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+<script>
+    function openDecryptedEmail() {
+
+        var decrypted = CryptoJS.AES.decrypt('U2FsdGVkX19NLIXY1RtFvdEhpSpEz2FHdQw0IzuGJao=', "Secret Passphrase");
+        //console.log('Decrypted email: '+decrypted.toString(CryptoJS.enc.Utf8));
+
+        window.location.href = 'mailto:' + decrypted.toString(CryptoJS.enc.Utf8)
+    }
+</script>

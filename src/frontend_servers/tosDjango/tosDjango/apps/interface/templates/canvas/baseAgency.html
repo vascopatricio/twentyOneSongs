@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    {% include './baseHeadMeta.html' %}
+    <!-- Document Title
+    ============================================= -->
+    {% block documentTitle %}
+    {% endblock %}
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/style.css" type="text/css" />
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/dark.css" type="text/css" />
+
+    <!-- Agency Demo Specific Stylesheet -->
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/demos/agency/agency.css" type="text/css" />
+    <!-- / -->
+
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" type="text/css">
+
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/responsive.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/colors.css" type="text/css" />
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+</head>
+
+{%block fullBody %}
+<body class="stretched no-transition" ng-app="eventPageAngular">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+    <div id="eventUsername" style="display:none;">{{ eventUsername }}</div>
+
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="sticky-style-2">
+        <div id="header-wrap">
+
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="style-2 center">
+
+                <div class="container clearfix">
+
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+
+                </div>
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </header><!-- #header end -->
+
+
+    <!-- Footer
+    ============================================= -->
+    {% include './baseAgencyFooter.html' %}
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/functions.js"></script>
+
+</body>
+<script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/plugins.js"></script>
+
+{% endblock %}
+
+</html>

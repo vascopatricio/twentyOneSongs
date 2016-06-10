@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" style="text-align:center;">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Create Playlist For Song</h3>
+
+                <p>
+                    <select id="songSel" class="form-control">
+                        {% for song in allSongs %}
+                            <option value="{{ song.id }}">{{ song.title }}
+                                {% if song.getAlbum %}({{ song.getAlbum.title }}){% endif %}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+
+                <p><span onclick="calculateResults('song', $('#songSel').val());"
+                         class="btn btn-sm btn-primary">Create</span></p>
+            </div>
+            <div class="col-md-4">
+                <h3>Create Playlist For Topic</h3>
+
+                <p>
+                    <select id="topicSel" class="form-control">
+                        {% for topic in allTopics %}
+                            <option value="{{ topic.id }}">{{ topic.name }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+
+                <p><span onclick="calculateResults('topic', $('#topicSel').val());"
+                         class="btn btn-sm btn-primary">Create</span></p>
+            </div>
+            <div class="col-md-4">
+                <h3>Create Playlist For Genre</h3>
+
+                <p>
+                    <select id="genreSel" class="form-control">
+                        {% for genre in allGenres %}
+                            <option value="{{ genre.id }}">{{ genre.name }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+
+                <p><span onclick="calculateResults('genre', $('#genreSel').val());"
+                         class="btn btn-sm btn-primary">Create</span></p>
+            </div>
+        </div>
+
+        <div id="resArea" style="display:none; text-align:center;">
+            <table id="resultsDtable" class="table table-condensed">
+                <thead>
+                <tr>
+                    <td>Song</td>
+                    <td>Duration</td>
+                    <td>Match</td>
+                    <td>Listen</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function ($) {
+        calculateResults = function (mode, id) {
+            var url = getApiServerLocation() + 'datatables/recommendations/' + String(mode) + '/' + String(id) + '/';
+
+            try {
+                $('#resultsDtable').dataTable().fnDestroy();
+            } catch (e) {
+                console.log('Error destroying dtable: '+e.stack);
+            }
+
+            $('#resultsDtable').dataTable({
+                "ajax": url,
+                "bInfo": false,
+                "order": [[2,'desc']]
+            });
+
+            $('#resArea').show();
+        };
+    })(jQuery);
+</script>

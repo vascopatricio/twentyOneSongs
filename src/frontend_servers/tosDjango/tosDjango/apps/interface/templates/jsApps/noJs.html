@@ -1,0 +1,11 @@
+{% if page == 'browse' %}
+    {% include "noJsPages/browser.html" %}
+{% else %}
+    {% if page == 'recomm' %}
+        {% include "noJsPages/recomm.html" %}
+    {% else %}
+        {% if page == 'about' %}
+            {% include "noJsPages/about.html" %}
+        {% endif %}
+    {% endif %}
+{% endif %}

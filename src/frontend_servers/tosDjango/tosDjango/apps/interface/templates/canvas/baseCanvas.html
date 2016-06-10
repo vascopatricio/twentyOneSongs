@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    {% block head %}
+        {% include 'canvas/baseHeadMeta.html' %}
+
+        <meta name="google-site-verification" content="42gRYHNyF5Q0BYM7BgKtzNCAQ26o_WJHIb7BBag-vjI"/>
+
+        <!-- Stylesheets
+        ============================================= -->
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+              rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/bootstrap.css"
+              type="text/css"/>
+        <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/style.css"
+              type="text/css"/>
+        <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/dark.css"
+              type="text/css"/>
+
+        <!-- Agency Demo Specific Stylesheet -->
+        <link rel="stylesheet"
+              href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/demos/agency/agency.css"
+              type="text/css"/>
+        <!-- / -->
+
+        <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/font-icons.css"
+              type="text/css"/>
+        <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/animate.css"
+              type="text/css"/>
+        <link rel="stylesheet"
+              href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/magnific-popup.css"
+              type="text/css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" type="text/css">
+
+        <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/responsive.css"
+              type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+        <link rel="stylesheet" href="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/css/colors.css"
+              type="text/css"/>
+
+        <!-- External JavaScripts
+        ============================================= -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+        <!-- Document Title
+        ============================================= -->
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+
+<body class="stretched no-transition">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix" ng-app="websiteAngular">
+
+    <!-- Header
+    ============================================= -->
+
+    {% block fullHeader %}
+    {% endblock %}
+
+
+    {% block slider %}
+    {% endblock %}
+
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+        <div class="content-wrap">
+            {% block mainContent %}
+            {% endblock %}
+        </div>
+    </section>
+    <!-- #content end -->
+
+    <!-- Footer
+    ============================================= -->
+    {% include 'canvas/baseAgencyFooter.html' %}
+    <!-- #footer end -->
+</div>
+<!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- Footer Scripts
+============================================= -->
+
+{% block extraFooterScripts %}
+    <script type="text/javascript"
+            src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/plugins.js"></script>
+    <script type="text/javascript"
+            src="http://staticbgi.venturekickr.com/templateAssets/canvas/js/jquery.gmap.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+{% endblock %}
+
+<script type="text/javascript"
+        src="http://staticbgi.venturekickr.com/templateAssets/canvas/js/plugins.js"></script>
+<script type="text/javascript"
+        src="http://staticbgi.venturekickr.com/templateAssets/canvas/js/functions.js"></script>
+</body>
+</html>

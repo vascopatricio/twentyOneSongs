@@ -1,0 +1,119 @@
+{% extends './baseAgency.html' %}
+
+{% block documentTitle %}
+    <title>{{ eventName }}</title>
+{% endblock %}
+
+{%block fullBody %}
+<body class="stretched" ng-app="eventPageAngular" data-loader-timeout="750">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+    <div id="eventUsername" style="display:none;">{{ eventUsername }}</div>
+
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="sticky-style-2">
+
+        <div class="container clearfix">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-2" style="text-align:center;">
+                    <img src="http://staticbgi.venturekickr.com/staticResources/bostonImmersion/BGIBostonBrancoBaixo.jpg"
+                         style="max-height:150px;">
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="header-wrap">
+
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="style-2 center">
+
+                <div class="container clearfix">
+
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                    <ul>
+                        <li id="overviewMenuLi" class="current">
+                            <a href="#overview"><div>Overview</div></a>
+                        </li>
+                        <li id="programMenuLi">
+                            <a href="#program"><div>Program</div></a>
+                        </li>
+                        <li id="keynotesMenuLi">
+                            <a href="#speakers"><div>Team</div></a>
+                        </li>
+                        <li id="investorsMenuLi">
+                            <a href="#investors"><div>Investors</div></a>
+                        </li>
+                        <li id="testimonialsMenuLi">
+                            <a href="#testimonials"><div>Testimonials</div></a>
+                        </li>
+                        <li id="supportersMenuLi">
+                            <a href="#supporters"><div>Supporters</div></a>
+                        </li>
+                        <li id="applyMenuLi">
+                            <a href="#apply"><div>Apply</div></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </header><!-- #header end -->
+
+    <div ng-view></div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/jquery.vmap.js"></script>
+
+    <script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/vmap/jquery.vmap.world.js"></script>
+    <script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/vmap/jquery.vmap.usa.js"></script>
+    <script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/vmap/jquery.vmap.europe.js"></script>
+    <script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/vmap/jquery.vmap.germany.js"></script>
+    <script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/vmap/jquery.vmap.sampledata.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/jquery.gmap.js"></script>
+
+    <script src="http://static.venturekickr.com/angP/accel.globals.min.latest/constants.js"></script>
+    <script src="http://static.venturekickr.com/angP/accelwebsite.min.latest/globalsBefore.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-sanitize.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/3.2.5/angular-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/3.2.5/angular-file-upload-shim.min.js"></script>
+
+    <script src="http://static.venturekickr.com/angP/accelwebsite.min.latest/eventPageAngular.js"></script>
+    <script src="http://static.venturekickr.com/angP/accelwebsite.min.latest/globalsAfter.js"></script>
+
+    <script src="http://static.venturekickr.com/angP/accel.globals.min.latest/globalServices.js"></script>
+    <script src="http://static.venturekickr.com/angP/accel.globals.min.latest/globalServicesModules.js"></script>
+
+    <!-- Footer
+    ============================================= -->
+    {% include './baseAgencyFooter.html' %}
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/plugins.js"></script>
+<script type="text/javascript" src="http://staticbgi.venturekickr.com/templateAssets/canvasEvents/js/functions.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
+</body>
+{% endblock %}
