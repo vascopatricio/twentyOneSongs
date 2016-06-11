@@ -15,7 +15,10 @@ def obtainHeaderMenu(js, api):
         recommEntry['href'] = '#agRecomm'
         aboutEntry['href'] = '#agAbout'
     elif js == 'react':
-        pass
+        homeEntry['href'] = '#reactHome'
+        browserEntry['href'] = '#reactBrowse'
+        recommEntry['href'] = '#reactRecomm'
+        aboutEntry['href'] = '#reactAbout'
     elif js == 'nojs':
         homeEntry['href'] = '/interface/'+ js+'/' + api + '/home/'
         browserEntry['href'] = '/interface/' + js+'/' + api + '/browse/'

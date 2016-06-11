@@ -82,16 +82,18 @@ def obtainSongJQueryDtableCell(song, colName, extraParams=None):
     elif colName == 'genres':
         genres = song.genres.all()
         if len(genres):
-            pass
+            for genre in genres:
+                html += ' <small>'+str(genre.genre)+'</small><br/> '
         else:
-            pass
+            html += 'N/A'
 
     elif colName == 'topics':
         topics = song.topics.all()
         if len(topics):
-            pass
+            for topic in topics:
+                html += ' <small>' + str(topic.topic) + '</small><br/> '
         else:
-            pass
+            html += 'N/A'
 
     elif colName == 'match':
 

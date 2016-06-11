@@ -9,4 +9,6 @@ src/frontend_servers/tosDjango/.idea/tosDjango.iml
 
 src/frontend_servers/tosDjango/.idea/vcs.xml
 
+src/frontend_js/tosReact/node_modules/*
+
 *.pyc
